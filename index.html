@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penerimaan Siswa Baru SMP MA'ARIF NU DUKUHWARU</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Penerimaan Siswa Baru<br><span>SMP MA'ARIF NU DUKUHWARU</span></h1>
+    <p class="subtitle">Tahun Ajaran 2025/2026</p>
+    <a href="#info" class="cta-btn">Lihat Informasi</a>
+  </header>
+
+  <main id="info">
+    <section class="card" id="profil">
+      <h2 class="animated-title">Profil Sekolah</h2>
+      <div class="profil-content">
+        <img src="https://img.icons8.com/color/96/000000/school-building.png" alt="Gedung Sekolah" class="profil-img">
+        <div>
+          <p>
+            <strong>SMP MA'ARIF NU DUKUHWARU</strong> adalah sekolah menengah pertama berbasis nilai-nilai keislaman dan kebangsaan, berlokasi di JL. Raya Slawi-jatibarang KM 3,Kabunan, Dukuhwaru, Tegal. Kami berkomitmen memberikan pendidikan berkualitas, lingkungan belajar yang nyaman, serta pengembangan karakter dan prestasi siswa.
+          </p>
+          <ul>
+            <li>Akreditasi: B</li>
+            <li>Fasilitas lengkap (kelas nyaman, laboratorium, perpustakaan, lapangan olahraga)</li>
+            <li>Ekstrakurikuler beragam: Pramuka, Drumband, Hadroh, Olahraga, Seni Tari, Pagar Nusa</li>
+            <li>Tenaga pendidik profesional & berpengalaman</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="persyaratan">
+      <h2>Persyaratan Calon Murid</h2>
+      <ul>
+        <li>Mengisi formulir pendaftaran</li>
+        <li>Surat Keterangan Nilai Rapot Asli/Fotocopy yang dilegalisir</li> 
+        <li>Surat Keterangan Lulus Asli/ Fotocopy yang dilegalisir</li> 
+        <li>Fotocopy ijazah SD/MI yang dilegalisir </li>
+        <li>Pas foto terbaru ukuran 3 x 4 (2 Lembar) </li>
+        <li>Fotocopy Akta Kelahiran </li>
+        <li>Fotocopy Kartu Keluarga </li>
+        <li>Fotocopy Kartu NISN </li>
+        <li>Fotocopy KTP orang tua Ayah dan Ibu / Wali (Jika tinggal dengan wali) 
+        <li>Fotocopy ijazah MDA </li>
+        <li>Fotocopy KIP/PKH (Bila memilliki)</li> 
+      </ul>
+    </section>
+
+    <!-- Tambahan gambar brosur -->
+    <section class="card" id="brosur">
+      <h2>Brosur Penerimaan Siswa Baru</h2>
+      <img src="img/brosur.jpg" alt="Brosur Penerimaan Siswa Baru" style="max-width:100%;height:auto;display:block;margin:0 auto 16px;">
+    </section>
+
+    <section class="card">
+      <h2>Tanggal Pendaftaran</h2>
+      <p><strong>1 Juni 2025</strong> s/d <strong>30 Juni 2025</strong></p>
+    </section>
+
+    <section class="card">
+      <h2 class="animated-title">Jalur Penerimaan Murid Baru</h2>
+      <ul class="jalur-list">
+        <li title="Pendaftaran umum untuk semua siswa">
+          <img src="https://img.icons8.com/color/24/000000/checked-user-male.png" class="jalur-icon" alt="Ikon Jalur Reguler"> Jalur Reguler
+        </li>
+        <li title="Untuk siswa berprestasi akademik/non-akademik">
+          <img src="https://img.icons8.com/color/24/000000/prize.png" class="jalur-icon" alt="Ikon Jalur Prestasi"> Jalur Prestasi
+        </li>
+        <li title="Untuk siswa dari keluarga kurang mampu/khusus">
+          <img src="https://img.icons8.com/color/24/000000/helping-hand.png" class="jalur-icon" alt="Ikon Jalur Afirmasi"> Jalur Afirmasi
+        </li>
+      </ul>
+      <a href="formulir.html" target="_blank" class="daftar-btn">Daftar Sekarang</a>
+    </section>
+
+    <section class="card">
+      <h2 class="animated-title">Jumlah Ketersediaan Daya Tampung</h2>
+      <p>
+        <span class="counter" id="kuota">0</span> Siswa
+        <img src="https://img.icons8.com/color/32/000000/classroom.png" alt="kuota" id="kuota-icon" style="vertical-align:middle;margin-left:8px;">
+      </p>
+      <button class="info-btn" onclick="showDetail('kuota')">Lihat Detail</button>
+      <div class="detail-popup" id="kuota-detail">
+        <p>
+          <b>128 siswa</b> (4 kelas, masing-masing 32 siswa).<br>
+          <span style="color:#2e8b57;font-weight:500;">Update terakhir: Mei 2025</span>
+        </p>
+        <button onclick="closeDetail('kuota')">Tutup</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Tanggal Pengumuman Hasil Seleksi</h2>
+      <p><strong>5 Juli 2025</strong></p>
+    </section>
+
+    <section class="card free">
+      <h2>Ketentuan Pendaftaran</h2>
+      <p><span class="gratis">GRATIS!</span> Tidak dipungut biaya apapun.</p>
+    </section>
+  </main>
+
+  <footer style="background:#f7f7f7; border-top:1px solid #e0e0e0; margin-top:32px;">
+    <div style="max-width:1100px; margin:0 auto; padding:32px 16px 16px 16px;">
+      <div style="display:flex; flex-wrap:wrap; gap:32px;">
+        <!-- Logo & Nama Sekolah -->
+        <div style="flex:1; min-width:220px;">
+          <img src="https://img.icons8.com/color/96/000000/school-building.png" alt="Logo Sekolah" style="width:64px; height:64px; margin-bottom:12px;">
+          <h3 style="margin:0 0 8px 0; font-size:1.15em; color:#2e8b57;">SMP MA'ARIF NU DUKUHWARU</h3>
+          <div style="font-size:0.97em; color:#444;">
+            JL. Raya Slawi-jatibarang KM 3,<br>
+            Kabunan, Dukuhwaru, Tegal.
+          </div>
+        </div>
+        <!-- Kontak -->
+        <div style="flex:1; min-width:220px;">
+          <h4 style="margin-bottom:8px; color:#2e8b57; text-align:center;">Kontak</h4>
+          <div style="font-size:0.97em; text-align:left;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+              <img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WhatsApp">
+              <b style="color: #222;">Bu Nana:</b>
+              <a href="https://wa.me/6287888633158" target="_blank" style="color:#222;">+62-878-8863-3158</a>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+              <img src="https://img.icons8.com/color/24/000000/whatsapp--v1.png" alt="WhatsApp">
+              <b style="color: #222;">Bu Rizki:</b>
+              <a href="https://wa.me/6288239486548" target="_blank" style="color:#222;">+62-882-3948-6548</a>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+              <img src="https://img.icons8.com/color/24/000000/phone.png" alt="Telepon">
+              <span style="color: #222;">(0283) 6197768</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <img src="https://img.icons8.com/color/24/000000/gmail-new.png" alt="Email">
+              <a href="mailto:smpmaarifnudukuhwaru2@gmail.com" style="color:#222;">smpmaarifnudukuhwaru2@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <!-- Sosial Media -->
+        <div style="flex:1; min-width:220px;">
+          <h4 style="margin-bottom:8px; color:#2e8b57; text-align:center;">Sosial Media</h4>
+          <div style="font-size:0.97em; text-align:left;">
+            <img src="https://img.icons8.com/color/24/000000/instagram-new.png" alt="Instagram" style="vertical-align:middle;margin-right:4px;">
+            <a href="https://instagram.com/smp.maarifnudukuhwaru" target="_blank" style="color:#222;">smp.maarifnudukuhwaru</a><br>
+            <img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" style="vertical-align:middle;margin-right:4px;">
+            <b style="color: #222;" > Amanu Ma'arif Nu Dukuhwaru </b>
+          </div>
+        </div>
+      </div>
+      <hr style="margin:24px 0 12px 0; border:0; border-top:1px solid #e0e0e0;">
+      <div style="text-align:center; font-size:0.98em; color:#888;">
+        &copy; 2025 SMP MA'ARIF NU DUKUHWARU
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
