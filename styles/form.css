@@ -145,6 +145,26 @@ ol, ul {
     padding-top: 10px;
 }
 
+.zf-tempFrmWrapper.zf-phone input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+}
+
+.zf-tempFrmWrapper.zf-phone input[type="text"]::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.zf-tempFrmWrapper.zf-phone .zf-errorMessage {
+    color: #ff4444;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.zf-tempFrmWrapper.zf-phone input:invalid {
+    border-color: #ff4444;
+}
+
 /**********Mandatory Message***********/	
 .zf-important {
 	color: #ff0000 !important;
@@ -1399,3 +1419,7 @@ width: 223px;
 
 
 /* New Css */
+.zf-tempContDiv input[type="text"]::placeholder {
+  color: #666;
+  opacity: 0.7;
+}
