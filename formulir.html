@@ -36,15 +36,22 @@ Tempat Lahir
 <em class="zf-important"> *</em> 
 </label>
 <div class="zf-tempContDiv">
-<span> <input type="text" name="Date" checktype="c4" value="" maxlength="25" placeholder="" />
-<label>dd-MMM-yyyy</label> </span><div class="zf-clearBoth"></div><p id="Date_error" class="zf-errorMessage" style="display: none;">Invalid value</p></div><div class="zf-clearBoth"></div></div>
+<span>
+<input type="text" name="Date" aria-label="Tanggal Lahir" aria-required="true" aria-describedby="Date_error" checktype="c4" value="" maxlength="25" placeholder="dd-MMM-yyyy" id="input-tanggal-lahir" autocomplete="on" />
+<label>hh-bbb-tttt</label>
+</span>
+<div class="zf-clearBoth"></div>
+<p id="Date_error" class="zf-errorMessage" style="display: none;">Invalid value</p>
+</div>
+<div class="zf-clearBoth"></div>
+</div>
 <div class="zf-tempFrmWrapper  zf-large "><label class="zf-labelName">  
 NISN 
 <em class="zf-important"> *</em> 
 </label>
 <div class="zf-tempContDiv">
 <span> 
-<input type="text" name="Number" checktype="c2" value="" maxlength="18" fieldType=3 placeholder="" /> </span><p id="Number_error" class="zf-errorMessage" style="display: none;">Invalid value</p></div><div class="zf-clearBoth"></div></div>
+<input type="text" name="Number" checktype="c2" value="" maxlength="10" fieldType=3 placeholder="" /> </span><p id="Number_error" class="zf-errorMessage" style="display: none;">Invalid value</p></div><div class="zf-clearBoth"></div></div>
 <div class="zf-radio zf-tempFrmWrapper zf-sideBySide"><label class="zf-labelName">
 Jenis Kelamin 
 <em class="zf-important">*</em> 
@@ -64,7 +71,11 @@ Asal Sekolah
 </label>
 <div class="zf-tempContDiv">
 <span> 
-<input type="text" name="SingleLine" checktype="c1" value="" maxlength="255" fieldType=1 placeholder="" /> </span><p id="SingleLine_error" class="zf-errorMessage" style="display: none;">Invalid value</p></div><div class="zf-clearBoth"></div></div>
+<input type="text" name="SingleLine" checktype="c1" value="" maxlength="255" fieldType="1" placeholder="" /> 
+</span>
+<p id="SingleLine_error" class="zf-errorMessage" style="display: none;">Invalid value</p>
+</div>
+<div class="zf-clearBoth"></div></div>  
 <div id="Address" class="zf-tempFrmWrapper zf-address zf-addrlarge"><label class="zf-labelName"> Alamat Calon Murid 
 <em class="zf-important"> *</em> 
 </label>
@@ -72,22 +83,7 @@ Asal Sekolah
 <div class="zf-addrCont">
 <div class="address_row_1"> 
 <span class="zf-addresCols"> <input type="text" maxlength="255" name="Address_AddressLine1" checktype="c1" placeholder=""/>
-<label>Alamat</label> </span></div>
-<div class="address_row_2"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address_City" checktype="c1" placeholder=""/>
-<label>Kecamatan</label> </span></div>
-<div class="address_row_3"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address_Region" checktype="c1" placeholder=""/>
-<label>Kota&#x2f;Kabupaten</label> </span> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address_AddressLine2" checktype="c1" placeholder=""/>
-<label>Provinsi</label> </span></div>
-<div class="address_row_4">
-<span class="zf-addresCols"> <select class="zf-form-sBox" name="Address_Country" checktype="c1">
-<option value="-Select-">-Select-</option>
-<option selected=true>Indonesia</option></select>
-<label>Country</label> </span> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address_ZipCode" checktype="c1" placeholder=""/>
-<label>Kode Pos</label> </span></div>
+<label>Alamat Lengkap</label> </span></div>
 <div class="zf-clearBoth"></div><p id="Address_error" class="zf-errorMessage" style="display:none;">Invalid value</p></div></div><div class="zf-eclearBoth"></div></div>
 <div class="zf-tempFrmWrapper zf-name  zf-namelarge"><label class="zf-labelName"> 
 Nama Ayah 
@@ -130,14 +126,12 @@ NIK Ibu
 </label>
 <div class="zf-tempContDiv zf-phonefld">
 <div
-class="zf-phwrapper"    
+class="zf-phwrapper zf-phNumber"    
 >
-<span> <input type="text" compname="PhoneNumber_countrycodeval" name="PhoneNumber_countrycodeval" checktype="c7" maxlength="10" phoneFormat="1" isCountryCodeEnabled=true  id="international_PhoneNumber_countrycodeval" valType="code" placeholder=""/>
-<label>Code</label> </span>
-<span> <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled=true fieldType="11" id="international_PhoneNumber_countrycode" valType="number" phoneFormatType="1" placeholder="" />
+<span> <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled=false fieldType="11" id="international_PhoneNumber_countrycode" valType="number" phoneFormatType="1" placeholder="" />
 <label>Number</label> </span>            
 <div class="zf-clearBoth"></div></div><p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;">Invalid value</p></div><div class="zf-clearBoth"></div></div>
-<div class="zf-tempFrmWrapper  zf-large "><label class="zf-labelName">  
+        <div class="zf-tempFrmWrapper  zf-large "><label class="zf-labelName">  
 Email
 </label>
 <div class="zf-tempContDiv">
@@ -151,19 +145,6 @@ Email
 <div class="address_row_1"> 
 <span class="zf-addresCols"> <input type="text" maxlength="255" name="Address1_AddressLine1" checktype="c1" placeholder=""/>
 <label>Alamat Lengkap</label> </span></div>
-<div class="address_row_2"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address1_City" checktype="c1" placeholder=""/>
-<label>Kecamatan</label> </span></div>
-<div class="address_row_3"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address1_Region" checktype="c1" placeholder=""/>
-<label>Kab&#x2f;Kota</label> </span> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address1_ZipCode" checktype="c1" placeholder=""/>
-<label>Kode Pos</label> </span></div>
-<div class="address_row_4">
-<span class="zf-addresCols"> <select class="zf-form-sBox" name="Address1_Country" checktype="c1">
-<option value="-Select-">-Select-</option>
-<option selected=true>Indonesia</option></select>
-<label>Country</label> </span></div>
 <div class="zf-clearBoth"></div><p id="Address1_error" class="zf-errorMessage" style="display:none;">Invalid value</p></div></div><div class="zf-eclearBoth"></div></div>
 <div class="zf-tempFrmWrapper zf-name  zf-namelarge"><label class="zf-labelName"> 
 Nama Lengkap Wali
@@ -176,15 +157,13 @@ Nama Lengkap Wali
 <label>Nama Belakang</label> </span>
 <div class="zf-clearBoth"></div></div><p id="Name3_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
 <p class="zf-instruction">Isi jika Calon Murid tinggal dengan Wali</p></div><div class="zf-clearBoth"></div></div>
-<div  class="zf-tempFrmWrapper zf- zf-large "><label class="zf-labelName"> No Hp Wali
+<div  class="zf-tempFrmWrapper zf- zf-large "><label class="zf-labelName"> No. Hp Wali
 </label>
 <div class="zf-tempContDiv zf-phonefld">
 <div
-class="zf-phwrapper"    
+class="zf-phwrapper zf-phNumber"    
 >
-<span> <input type="text" compname="PhoneNumber1_countrycodeval" name="PhoneNumber1_countrycodeval" checktype="c7" maxlength="10" phoneFormat="1" isCountryCodeEnabled=true  id="international_PhoneNumber1_countrycodeval" valType="code" placeholder=""/>
-<label>Code</label> </span>
-<span> <input type="text" compname="PhoneNumber1" name="PhoneNumber1_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled=true fieldType="11" id="international_PhoneNumber1_countrycode" valType="number" phoneFormatType="1" placeholder="" />
+<span> <input type="text" compname="PhoneNumber1" name="PhoneNumber1_countrycode" maxlength="20" checktype="c7" value="" phoneFormat="1" isCountryCodeEnabled=false fieldType="11" id="international_PhoneNumber1_countrycode" valType="number" phoneFormatType="1" placeholder="" />
 <label>Number</label> </span>            
 <div class="zf-clearBoth"></div></div><p id="PhoneNumber1_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
 <p class="zf-instruction" id="hint-PhoneNumber1">Isi jika Calon Murid tinggal dengan Wali</p></div><div class="zf-clearBoth"></div></div>
@@ -194,22 +173,7 @@ class="zf-phwrapper"
 <div class="zf-addrCont">
 <div class="address_row_1"> 
 <span class="zf-addresCols"> <input type="text" maxlength="255" name="Address2_AddressLine1" checktype="c1" placeholder=""/>
-<label>Alamat</label> </span></div>
-<div class="address_row_2"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address2_City" checktype="c1" placeholder=""/>
-<label>Kecamatan</label> </span></div>
-<div class="address_row_3"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address2_Region" checktype="c1" placeholder=""/>
-<label>Kab&#x2f;Kota</label> </span> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address2_AddressLine2" checktype="c1" placeholder=""/>
-<label>Provinsi</label> </span></div>
-<div class="address_row_4"> 
-<span class="zf-addresCols"> <input type="text" maxlength="255" name="Address2_ZipCode" checktype="c1" placeholder=""/>
-<label>Kode Pos</label> </span>
-<span class="zf-addresCols"> <select class="zf-form-sBox" name="Address2_Country" checktype="c1">
-<option value="-Select-">-Select-</option>
-<option selected=true>Indonesia</option></select>
-<label>Negara</label> </span></div>
+<label>Alamat Lengkap</label> </span></div>
 <div class="zf-clearBoth"></div><p id="Address2_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
 <p class="zf-instruction">Isi jika Calon Murid tinggal dengan Wali</p></div></div><div class="zf-eclearBoth"></div></div>
 <div class="zf-checkbox zf-tempFrmWrapper zf-oneColumns"><label class="zf-labelName">
@@ -277,7 +241,36 @@ style="display:none;">Invalid value</p>
 </ul></div><ul><li class="zf-fmFooter"><button class="zf-submitColor">Submit</button></li></ul></div></form></div><script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
 var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
 var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-var zf_MandArray = [ "Name_First", "SingleLine2", "Date", "Number", "Radio", "SingleLine", "Address_AddressLine1", "Address_City", "Address_Region", "Address_AddressLine2", "Address_Country", "Address_ZipCode", "Name1_First", "Number1", "Name2_First", "Number2", "PhoneNumber_countrycode", "PhoneNumber_countrycodeVal", "Address1_AddressLine1", "Address1_City", "Address1_Region", "Address1_ZipCode", "Address1_Country", "Checkbox", "FileUpload", "ImageUpload", "TermsConditions"]; 
-var zf_FieldArray = [ "Name_First", "Name_Last", "SingleLine2", "Date", "Number", "Radio", "SingleLine", "Address_AddressLine1", "Address_City", "Address_Region", "Address_AddressLine2", "Address_Country", "Address_ZipCode", "Name1_First", "Name1_Last", "Number1", "Name2_First", "Name2_Last", "Number2", "PhoneNumber_countrycode", "PhoneNumber_countrycodeVal", "Email", "Address1_AddressLine1", "Address1_City", "Address1_Region", "Address1_ZipCode", "Address1_Country", "Name3_First", "Name3_Last", "PhoneNumber1_countrycode", "PhoneNumber1_countrycodeVal", "Address2_AddressLine1", "Address2_City", "Address2_Region", "Address2_AddressLine2", "Address2_ZipCode", "Address2_Country", "Checkbox", "FileUpload", "ImageUpload", "TermsConditions"]; 
+var zf_MandArray = [ "Name_First", "SingleLine2", "Date", "Number", "Radio", "SingleLine", "Address_AddressLine1", "Name1_First", "Number1", "Name2_First", "Number2", "PhoneNumber_countrycode", "PhoneNumber_first", "PhoneNumber_second", "Address1_AddressLine1", "Checkbox", "FileUpload", "ImageUpload", "TermsConditions"]; 
+var zf_FieldArray = [ "Name_First", "Name_Last", "SingleLine2", "Date", "Number", "Radio", "SingleLine", "Dropdown", "Address_AddressLine1", "Name1_First", "Name1_Last", "Number1", "Name2_First", "Name2_Last", "Number2", "PhoneNumber_countrycode", "PhoneNumber_first", "PhoneNumber_second", "Email", "Address1_AddressLine1", "Name3_First", "Name3_Last", "PhoneNumber1_countrycode", "PhoneNumber1_first", "PhoneNumber1_second", "Address2_AddressLine1", "SingleLine1", "Checkbox", "MultiLine", "MultiLine1", "FileUpload", "ImageUpload", "FileUpload1", "TermsConditions"]; 
 var isSalesIQIntegrationEnabled = false;
-var salesIQFieldsArray = [];</script></body>
+var salesIQFieldsArray = [];</script>
+<script>
+document.getElementById('input-tanggal-lahir').addEventListener('blur', function(e) {
+    let val = e.target.value.trim();
+    // Jika sudah sesuai format, tidak perlu diubah
+    if (/^(([0][1-9])|([1-2][0-9])|([3][0-1]))-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-\d{4}$/i.test(val)) return;
+    // Coba parse jika user input dengan format lain (yyyy-mm-dd atau dd/mm/yyyy)
+    let d = null;
+    if (/^\d{4}-\d{2}-\d{2}$/.test(val)) {
+        // yyyy-mm-dd
+        let [y, m, d2] = val.split('-');
+        d = new Date(`${y}-${m}-${d2}`);
+    } else if (/^\d{2}\/\d{2}\/\d{4}$/.test(val)) {
+        // dd/mm/yyyy
+        let [d2, m, y] = val.split('/');
+        d = new Date(`${y}-${m}-${d2}`);
+    } else if (/^\d{2}-\d{2}-\d{4}$/.test(val)) {
+        // dd-mm-yyyy
+        let [d2, m, y] = val.split('-');
+        d = new Date(`${y}-${m}-${d2}`);
+    }
+    if (d && !isNaN(d)) {
+        const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        let day = String(d.getDate()).padStart(2, '0');
+        let month = months[d.getMonth()];
+        let year = d.getFullYear();
+        e.target.value = `${day}-${month}-${year}`;
+    }
+});
+</script></body>
