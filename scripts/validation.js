@@ -101,17 +101,17 @@ function zf_ValidateAndSubmit(){
 						}
 			  		}else if( checkType == "c6" ){// No I18N
 			  			if (!zf_ValidateLiveUrl(fieldObj)) {
-							isValid = false;
-							fieldObj.focus();
-							zf_ShowErrorMsg(zf_FieldArray[ind]);
-							return false;
+						 isValid = false;
+						 fieldObj.focus();
+						 zf_ShowErrorMsg(zf_FieldArray[ind]);
+						 return false;
 							}
 			  		}else if( checkType == "c7" ){// No I18N
 			  			if (!zf_ValidatePhone(fieldObj)) {
-							isValid = false;
-							fieldObj.focus();
-							zf_ShowErrorMsg(zf_FieldArray[ind]);
-							return false;
+						 isValid = false;
+						 fieldObj.focus();
+						 zf_ShowErrorMsg(zf_FieldArray[ind]);
+						 return false;
 							}
 			  		}else if( checkType == "c8" ){// No I18N
 			  			zf_ValidateSignature(fieldObj);
@@ -347,8 +347,8 @@ function zf_ValidateAndSubmit(){
         var monthYearFormatRegExp;
 		if(dateFormat === "dd-MMM-yyyy"){
 			
-    	     dateFormatRegExp = "^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$";
-    	     monthYearFormatRegExp = "^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$";// No I18N
+    	     dateFormatRegExp = "^(0[1-9]|[12][0-9]|3[01])-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-([12][0-9]{3})$";
+    	     monthYearFormatRegExp = "^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-([12][0-9]{3})$";// No I18N
     	  
     	  }else if(dateFormat === "dd-MMMM-yyyy"){// No I18N
     	     dateFormatRegExp = "^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](January|February|March|April|May|June|July|August|September|October|November|December|JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)[-](?:(?:19|20)[0-9]{2})$";
@@ -393,3 +393,146 @@ function zf_ValidateAndSubmit(){
     	  
     	
     }
+function zf_ValidateDateOnInput(inputElem) {
+  inputElem.addEventListener('input', function(e) {
+    let value = e.target.value;
+    
+    // Auto format as user types
+    if(value.length === 2 && !value.includes('-')) {
+      value += '-';
+      e.target.value = value;
+    }
+    
+    if(value.length === 6 && value.split('-').length === 2) {
+      value += '-';
+      e.target.value = value;
+    }
+    
+    // Validate against regex pattern
+    let isValid = zf_DateRegex.test(value);
+    let errorElem = document.getElementById('Date_error');
+    
+    if(!isValid && value.length === 11) {
+      errorElem.style.display = 'block';
+    } else {
+      errorElem.style.display = 'none'; 
+    }
+  });
+}
+
+// Initialize validation on date input
+document.addEventListener('DOMContentLoaded', function() {
+  let dateInput = document.querySelector('input[name="Date"]');
+  if(dateInput) {
+    zf_ValidateDateOnInput(dateInput);
+  }
+});
+
+// Replace the existing zf_ValidatePhone function
+function zf_ValidatePhone(inpElem){
+    // Remove any non-numeric characters
+    var phoneValue = inpElem.value.replace(/\D/g,'');
+    
+    // Check if empty (only for non-mandatory fields)
+    if(phoneValue === '' && !inpElem.hasAttribute('required')) {
+        return true;
+    }
+    
+    // Check length between 10-13 digits
+    if(phoneValue.length >= 10 && phoneValue.length <= 13) {
+        // Check if starts with proper Indonesian format
+        if(phoneValue.startsWith('08') || phoneValue.startsWith('62')) {
+            return true;
+        }
+    }
+    
+    // Show specific error message
+    var errorElem = document.getElementById(inpElem.getAttribute('name') + '_error');
+    if(errorElem) {
+        errorElem.textContent = "Masukkan nomor HP yang valid (10-13 digit)";
+        errorElem.style.display = 'block';
+    }
+    
+    return false;
+}
+
+// Add input event listeners to format phone numbers
+document.addEventListener('DOMContentLoaded', function() {
+    var phoneInputs = document.querySelectorAll('input[checktype="c7"]');
+    
+    phoneInputs.forEach(function(input) {
+        input.addEventListener('input', function(e) {
+            // Remove non-numeric characters
+            var value = e.target.value.replace(/\D/g,'');
+            
+            // Limit to maxlength
+            if(value.length > 13) {
+                value = value.slice(0, 13);
+            }
+            
+            // Format the number
+            if(value.startsWith('62')) {
+                // Keep the 62 prefix
+                e.target.value = value;
+            } else if(value.startsWith('0')) {
+                // Keep the 0 prefix
+                e.target.value = value;
+            } else if(value.length > 0) {
+                // Add 0 prefix if missing
+                e.target.value = '0' + value;
+            }
+            
+            // Validate on input
+            var isValid = zf_ValidatePhone(e.target);
+            var errorElem = document.getElementById(e.target.getAttribute('name') + '_error');
+            if(errorElem) {
+                errorElem.style.display = isValid ? 'none' : 'block';
+            }
+        });
+    });
+});
+
+// Tambahkan fungsi ini di file validation.js
+function formatPhoneNumber(value) {
+    // Hapus semua karakter non-digit
+    value = value.replace(/\D/g, '');
+    
+    // Jika dimulai dengan 62, pastikan tidak lebih dari 13 digit
+    if (value.startsWith('62')) {
+        value = value.slice(0, 13);
+    } 
+    // Jika dimulai dengan 0, pastikan tidak lebih dari 12 digit
+    else if (value.startsWith('0')) {
+        value = value.slice(0, 12);
+    } 
+    // Jika tidak dimulai dengan 0 atau 62, tambahkan 0
+    else {
+        value = '0' + value;
+        value = value.slice(0, 12);
+    }
+    
+    return value;
+}
+
+// Tambahkan event listener untuk input nomor HP
+document.addEventListener('DOMContentLoaded', function() {
+    const phoneInput = document.getElementById('phone-input');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+            let formattedNumber = formatPhoneNumber(e.target.value);
+            e.target.value = formattedNumber;
+            
+            // Validasi panjang nomor
+            const isValid = formattedNumber.length >= 10 && formattedNumber.length <= 13;
+            const errorElem = document.getElementById('PhoneNumber_error');
+            
+            if (errorElem) {
+                if (!isValid && formattedNumber.length > 0) {
+                    errorElem.style.display = 'block';
+                } else {
+                    errorElem.style.display = 'none';
+                }
+            }
+        });
+    }
+});
